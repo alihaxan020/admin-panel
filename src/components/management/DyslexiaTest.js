@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../adminStyles/AdminStyles.css";
+import "./DyslexiaTest.css"
 
 const DyslexiaTest = () => {
   const [question, setQuestion] = useState("");
@@ -60,13 +61,13 @@ const DyslexiaTest = () => {
 
   return (
     <main>
-      <div className="row">
+      <div className="row  main-dyslexia">
         <div className="col-md-12">
           <div className="progress">
             <div
-              className="progress-bar"
+              className="progress-bar heading"
               role="progressbar"
-              style={{ width: "25%", backgroundColor: "blue" }}
+              style={{ width: "25%" , height : '20px', padding : '5px', backgroundColor:'dodgerblue' , color:'white'}}
               aria-valuenow="25"
               aria-valuemin="0"
               aria-valuemax="100"
@@ -75,17 +76,20 @@ const DyslexiaTest = () => {
             </div>
           </div>
           <form onSubmit={handleSubmit}>
-            <label>Enter your Question: </label>
-            <input
-              type="text"
-              name="question"
-              value={question}
-              onChange={(e) => setQuestion(e.target.value)}
-              required
-            />
+            <div className="form-inline">
+              <label style={{marginRight : '50px' , marginBottom:'20px'}}>Enter your Question: </label>
+              <input
+               style={{marginRight : '50px' , marginBottom:'20px'}}
+                type="text"
+                name="question"
+                value={question}
+                onChange={(e) => setQuestion(e.target.value)}
+                required
+              />
+            </div>
             {formValues.map((element, index) => (
               <div className="form-inline" key={index}>
-                <label>Enter your {index + 1} option: </label>
+                <label style={{marginRight : '57px'}}>Enter your {index + 1} option: </label>
                 <input
                   type="text"
                   name="name"
@@ -109,24 +113,28 @@ const DyslexiaTest = () => {
                 className="button add"
                 type="button"
                 onClick={() => addFormFields()}
+                className="button"
+                // style={{padding:'5px' , backgroundColor:'dodgerblue'  ,color:'white' , border:'none'}}
               >
                 Add Next Option
               </button>
             </div>
-            <label>Enter your Correct option: </label>
-            <input
-              type="text"
-              name="question"
-              value={correct_option}
-              onChange={(e) => setCorrect_option(e.target.value)}
-              required
-            />
+            <div className="form-inline">
+              <label style={{marginRight : '13px'}}>Enter your Correct option: </label>
+              <input
+                type="text"
+                name="question"
+                value={correct_option}
+                onChange={(e) => setCorrect_option(e.target.value)}
+                required
+              />
+            </div>
 
             <div className="button-section">
-              <button className="button submit" type="submit">
+              <button style={{marginLeft:'-13px'}} className="button submit" type="submit">
                 Submit
               </button>
-              <button onClick={handleDone}>Done</button>
+              <button style={{marginLeft:'15px'}} className="button submit" onClick={handleDone}>Done</button>
             </div>
           </form>
         </div>
